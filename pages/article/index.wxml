@@ -1,0 +1,23 @@
+<view class="container">
+ <block wx:if="{{loaded===2}}">
+  <view><image class="header" src="{{article.header}}" mode="aspectFill" /></view>
+  <view class="head flex">
+  <view class="flex-left">
+  <view><text class="title">{{article.title}}</text></view>
+  <view><text class="addition">{{article.name}}</text><contact-button 
+  type="default-dark" 
+  size="10"
+  style="margin-top: 5px;"
+  session-from="{{'article-' + article.title}}"
+><text class="addition"> 发表于 {{article.create_at}}</text>
+  
+</contact-button>
+  </view>
+  </view>
+  <view>
+    <image class="avatar" src="{{article.avatar}}" />
+  </view>
+  </view>
+  <view class="content"><rich-text nodes="{{article.content}}"></rich-text></view>
+  </block>
+</view>

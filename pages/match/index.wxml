@@ -1,0 +1,29 @@
+<!--index.wxml-->
+<view class="container">
+    <view>
+        <image class="swiper-item" src="../../image/saicheng.jpg"></image>
+    </view>
+
+    <view class="text selecter">
+        <text wx:for="{{types}}" wx:for-index="idx" wx:for-item="type" wx:key="{{idx}}" class="{{idx===ctype?'choosed':''}}" bindtap='bindTypeTap' data-idx="{{idx}}">{{type.simple}}</text>
+    </view>
+
+    <block wx:for="{{matches}}" wx:for-index="idx" wx:for-item="match" wx:key="{{match.match_id}}">
+        <view class="item">
+            <view class="flex item-first">
+                <text class="title" wx:if="{{match.home}}">上海申花</text>
+                <text class="title" wx:else>{{match.team}}</text>
+                <text class="time" wx:if="{{ctype!==6}}">{{match.time}}</text>
+                <text class="sub-title" wx:else>{{match.result}}</text>
+                <text class="title right" wx:if="{{match.home}}">{{match.team}}</text>
+                <text class="title right" wx:else>上海申花</text>
+            </view>
+            <view class="flex item-second">
+                <view class="up"><text class="action" style="border-color: {{types[match.type].color}}; color:{{types[match.type].color}}">{{types[match.type].all}}</text></view>
+                <text class="score up">{{match.round}}</text> 
+                <text class="score right up">{{match.stadium}}</text> 
+            </view>
+          
+        </view>
+    </block>
+</view>

@@ -1,0 +1,25 @@
+<!--index.wxml-->
+<view class="container">
+    <view>
+        <image class="swiper-item" src="../../image/chant.jpg"></image>
+    </view>
+
+    <view class="text selecter">
+        <text wx:for="{{types}}" wx:for-index="idx" wx:for-item="type" wx:key="{{idx}}" class="{{idx===ctype?'choosed':''}}" bindtap='bindTypeTap' data-idx="{{idx}}">{{type}}</text>
+    </view>
+
+    <block wx:for="{{chants}}" wx:for-index="idx" wx:for-item="chant" wx:key="{{chant.chant_id}}">
+        <view class="flex item" bindtap="bindChantTap" bindlongpress="bindChantInfo" data-ind="{{idx}}">
+            <view class="item_left">
+                <image src="{{cindex === idx && isPlaying ? '../../image/pause.jpg' : (chant.icon || '../../image/chant_default.jpg')}}" mode="scaleToFill" class="slide-image avatar"/>
+            </view>
+            <view class="flex_auto item_middle">
+                <view><text class="title">{{chant.name}}</text></view>
+                <view class="marquee">
+                <view class="{{cindex === idx&&isPlaying?'content':''}}">
+                <text style="display: inline-block; width: 5px;"></text>
+                <text class="sub_title">{{chant.description}}</text></view></view>
+            </view>
+        </view>
+    </block>
+</view>

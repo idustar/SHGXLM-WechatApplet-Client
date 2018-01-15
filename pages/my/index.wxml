@@ -1,0 +1,36 @@
+<!--index.wxml-->
+<view class="container">
+  <view  bindtap="bindViewTap" class="userinfo">
+    <image class="userinfo-avatar" src="{{userInfo.avatar}}" background-size="cover"></image>
+    <text class="userinfo-nickname">{{userInfo.nickName || '授权失败，点击设置'}}</text>
+  </view>
+
+<view class="text">
+        <view class="line_flag"></view>
+        <text>我的身份</text>
+    </view>
+
+<view wx:if="{{!userInfo.titles.length}}"><text class="userinfo-nickname" style="padding-left: 30px;">您暂无任何身份。</text></view>
+<block wx:else>
+<block wx:for="{{userInfo.titles}}" wx:for-index="idx" wx:for-item="title" wx:key="{{title.title_id}}">
+        <view class="flex item">
+          <image src="{{title.title_icon}}"></image>
+            <text>{{title.title_content}}</text>
+          
+        </view>
+    </block></block>
+    
+      
+    
+
+
+  <view class="info">
+    <text>{{source}}   </text><contact-button 
+  type="default-dark" 
+  size="20"
+  session-from="my"
+>
+</contact-button>
+  </view>
+
+</view>

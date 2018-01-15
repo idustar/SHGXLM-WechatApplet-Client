@@ -1,0 +1,60 @@
+{
+  "pages": [
+    "pages/home/index",
+    "pages/my/index",
+    "pages/article/index",
+    "pages/match/index",
+    "pages/activity/index",
+    "pages/acti/index",
+    "pages/form/index",
+    "pages/success/index",
+    "pages/chant/index"
+  ],
+  "window": {
+    "backgroundTextStyle": "white",
+    "navigationBarTextStyle": "white",
+    "navigationBarTitleText": "申花高校联盟",
+    "navigationBarBackgroundColor": "#004ea2",
+    "backgroundColor": "#004ea2",
+    "enablePullDownRefresh": true
+  },
+  "tabBar": {
+    "color": "#aeaeae",
+    "selectedColor": "#004ea2",
+    "borderStyle": "white",
+    "backgroundColor": "#ffffff",
+    "list": [
+      {
+        "pagePath": "pages/home/index",
+        "iconPath": "image/bar/home.jpg",
+        "selectedIconPath": "image/bar/home1.jpg",
+        "text": "首页"
+      },
+      {
+        "pagePath": "pages/match/index",
+        "iconPath": "image/bar/match.jpg",
+        "selectedIconPath": "image/bar/match1.jpg",
+        "text": "赛程"
+      },
+      {
+        "pagePath": "pages/activity/index",
+        "iconPath": "image/bar/activity.jpg",
+        "selectedIconPath": "image/bar/activity1.jpg",
+        "text": "活动"
+      },
+      {
+        "pagePath": "pages/chant/index",
+        "iconPath": "image/bar/chant.jpg",
+        "selectedIconPath": "image/bar/chant1.jpg",
+        "text": "曲库"
+      },
+      {
+        "pagePath": "pages/my/index",
+        "iconPath": "image/bar/my.jpg",
+        "selectedIconPath": "image/bar/my1.jpg",
+        "text": "我的"
+      }
+    ]
+  },
+  "debug": false
+}

@@ -1,0 +1,34 @@
+<!--index.wxml-->
+<view class="container">
+    <view>
+        <swiper class="swiper_box" indicator-dots="{{indicatorDots}}" vertical="{{vertical}}"
+                autoplay="{{autoplay}}" interval="{{interval}}" duration="{{duration}}" bindchange="swiperchange">
+            <block wx:for="{{banners}}" wx:for-index="idx" wx:for-item="item" wx:key="{{idx}}">
+                <swiper-item data-id="{{item.goto}}" bindtap="bindBannerTap">
+                    <image src="{{item.image}}" mode="aspectFill" class="slide-image"/>
+                </swiper-item>
+            </block>
+        </swiper>
+    </view>
+
+    <view class="text selecter">
+        <text wx:for="{{types}}" wx:for-index="idx" wx:for-item="type" wx:key="{{idx}}" class="{{idx===ctype?'choosed':''}}" bindtap='bindTypeTap' data-idx="{{idx}}">{{type}}</text>
+    </view>
+
+    <block wx:for="{{articles}}" wx:for-index="idx" wx:for-item="article" wx:key="{{article.article_id}}">
+        <view class="flex item" bindtap="bindArticleTap" data-id="{{article.article_id}}">
+            <view class="item_left">
+                <image src="{{article.avatar}}" mode="scaleToFill" class="slide-image avatar"/>
+            </view>
+            <view class="flex_auto item_middle">
+                <view><text class="title">{{article.title}}</text></view>
+                <view><text class="actor">{{article.create_at}}</text></view>
+            </view>
+            <view class="item_right">
+            <view><text class="action">{{types[article.type]}}</text></view>
+                <view><text class="score">{{article.name}}</text></view>
+                
+            </view>
+        </view>
+    </block>
+</view>

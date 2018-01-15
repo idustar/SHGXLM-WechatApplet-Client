@@ -1,0 +1,54 @@
+<view class="container">
+  <block wx:if="{{loaded===2}}">
+    <view>
+      <image class="header" src="{{activity.header}}" mode="aspectFill" />
+    </view>
+    <view class="content-container">
+      <view class="item">
+        <view class="flex content-container">
+          <view class="item-left">
+            <view>
+              <text class="title">{{activity.activity_name}}</text>
+            </view>
+            <view>
+              <text class="addition">组织者：{{activity.name}} </text>
+              <contact-button 
+  type="default-dark" 
+  size="10"
+  style="margin-top: 3px;"
+  session-from="{{'activity-' + activity.activity_name}}"
+>
+</contact-button>
+            </view>
+          </view>
+          <view>
+            <image class="avatar" src="{{activity.avatar}}" />
+
+          </view>
+        </view>
+
+        <view class="flex">
+        <form report-submit="true" bindsubmit="gotoForm">
+          <button class="submit" type="{{btnstate}}" size="mini" form-type="submit" data-id="{{activity.activity_id}}" disabled='{{!isOpen}}'>{{tip}}</button>
+          </form>
+          <text class="ac-data">报名开放时间为 {{activity.start_times}} 至 {{activity.end_times}}</text>
+
+        </view>
+      </view>
+
+      <view class="item" wx:if="{{submit.st && submit.st[0]}}">
+          <view class="tip"><text>您的报名已被处理</text></view>
+          <view class="flex" wx:for="{{submit.st}}" wx:for-index="idx" wx:for-item="st" wx:key="{{idx}}">
+            <view class="i1">{{st.name}}</view>
+            <view class="i2">{{st.text}}</view>   
+          </view>
+        
+        </view>
+
+
+      <view class="content item">
+        <rich-text nodes="{{activity.description}}"></rich-text>
+      </view>
+    </view>
+  </block>
+</view>

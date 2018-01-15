@@ -1,0 +1,18 @@
+<view class="page">
+    <view class="weui-msg flex center">
+        <view class="weui-msg__icon-area" style="margin-top: 20vh;">
+            <icon type="success" size="93"></icon>
+        </view>
+        
+            <view class="weui-msg__title" >成功!</view>
+            <view class="number">编号：{{submid_id}}</view>
+            <view class="weui-msg__desc" style="width: 80vw; margin-top: 3vh;">{{text}}
+        </view>
+        <view class="weui-msg__opr-area">
+            <view class="weui-btn-area" style="width: 80vw; margin-top: 5vh;">
+                <button class="weui-btn" type="primary" bindtap='returnList'>返回上一页</button>
+            </view>
+        </view>
+
+    </view>
+</view>

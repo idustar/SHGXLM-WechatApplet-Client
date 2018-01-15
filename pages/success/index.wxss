@@ -1,0 +1,9 @@
+/* pages/success/index.wxss */
+
+page{
+    background-color: #FFFFFF;
+}
+.number {
+  font-size: 14px;
+  color: red;
+}

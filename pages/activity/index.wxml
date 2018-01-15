@@ -1,0 +1,22 @@
+<!--index.wxml-->
+<view class="container">
+    <view>
+        <image class="swiper-item" src="../../image/activity.jpg"></image>
+    </view>
+
+    <view class="text selecter">
+        <text wx:for="{{types}}" wx:for-index="idx" wx:for-item="type" wx:key="{{idx}}" class="{{idx===ctype?'choosed':''}}" bindtap='bindTypeTap' data-idx="{{idx}}">{{type}}</text>
+    </view>
+
+    <block wx:for="{{activities}}" wx:for-index="idx" wx:for-item="ac" wx:key="{{ac.activity_id}}">
+        <view class="flex item" bindtap="bindActivityTap" data-id="{{ac.activity_id}}">
+            <view class="item_left">
+                <image src="../../image/default.jpg" mode="scaleToFill" class="slide-image avatar"/>
+            </view>
+            <view class="flex_auto item_middle">
+                <view><text class="title">{{ac.activity_name}}</text></view>
+                <view><text class="action">{{types[ac.type]}}</text></view>
+            </view>
+        </view>
+    </block>
+</view>

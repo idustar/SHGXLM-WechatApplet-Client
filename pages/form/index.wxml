@@ -1,0 +1,66 @@
+<view class="container">
+  <block wx:if="{{loaded===2}}">
+    <view>
+      <image class="header" src="{{activity.header}}" mode="aspectFill" />
+    </view>
+    <view class="content-container">
+      <view class="item">
+        <view class="flex content-container">
+          <view>
+            <text class="title">{{activity.activity_name}}</text>
+          </view>
+        </view>
+      </view>
+      <form bindsubmit="formSubmit" report-submit="true">
+        <block wx:for="{{activity.content.items}}" wx:for-index="idx" wx:for-item="item" wx:key="{{idx}}">
+          <view class="item" wx:if="{{item.show}}" class="item">
+            <view wx:if="{{item.title}}" class="flex">
+              <view>
+                <text class="item-title">{{item.title}}</text>
+                <text class="item-important"> {{item.important?'*':''}}</text>
+              </view>
+              <view wx:if="{{item.tip}}">
+                <text class="tip">{{item.tip}}</text>
+              </view>
+            </view>
+            <view wx:if="{{item.desc}}">
+              <text class="addition">{{item.desc}}</text>
+            </view>
+            <view wx:if="{{item.name === 'input'}}">
+              <input data-idx="{{idx}}" value="{{item.value}}" placeholder='{{item.placeholder}}' type="{{item.type}}" bindinput="bindInput" placeholder-class="placeholder"></input>
+            </view>
+            <view wx:elif="{{item.name === 'textarea'}}">
+              <textarea data-idx="{{idx}}" auto-height="true" value="{{item.value}}" placeholder='{{item.placeholder}}' bindinput="bindInput" placeholder-class="placeholder"></textarea>
+            </view>
+            <view wx:elif="{{item.name === 'selector'}}">
+              <picker mode="selector" range="{{item.range}}" range-key="text" value="{{item.value}}" data-idx="{{idx}}" bindchange='bindSelector'>
+                <view class="picker">{{item.range[item.value].text || '请选择'}} </view>
+              </picker>
+            </view>
+            <view wx:elif="{{item.name === 'other-selector'}}">
+              <picker mode="{{item.mode}}" value="{{item.value}}" data-idx="{{idx}}" bindchange='bindInput'>
+                <view class="picker">{{item.value || '请选择'}} </view>
+              </picker>
+            </view>
+            <view wx:elif="{{item.name === 'rich-text'}}">
+              <rich-text nodes="{{item.text}}"></rich-text>
+            </view>
+            <view wx:elif="{{item.name === 'checkbox'}}">
+              <checkbox-group bindchange="bindInput" data-idx="{{idx}}">
+                <view wx:for="{{item.values}}" wx:for-item="option" wx:key="{{option.text}}">
+                  <checkbox value="{{option.text}}" checked="{{option.checked}}" />{{option.text}}
+                </view>
+              </checkbox-group>
+            </view>
+            <view wx:elif="{{item.name === 'image'}}">
+              <image class="xd-img-user1" bindtap="chooseImageTap" src="{{item.value}}" data-idx="{{idx}}"></image>
+            </view>
+          </view>
+        </block>
+        <view>
+          <button formType="submit">{{activity.submit || "提交"}}</button>
+        </view>
+      </form>
+    </view>
+  </block>
+</view>

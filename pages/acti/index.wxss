@@ -1,0 +1,79 @@
+.container {
+    background-color: #fff;
+}
+
+image {
+  width: 100%;
+}
+
+.header {
+  height: 40vh;
+}
+
+.title {
+  padding:10px; 
+  line-height: 40px;
+  font-size: 24px;
+  color: #333;
+}
+.addition {
+  padding: 10px;
+  line-height: 20px;
+  font-size: 14px;
+  color: #aaaaaa;
+}
+
+.content {
+  padding: 10px;
+  
+}
+.content-container {
+  justify-content:  space-between;
+}
+
+.item {
+    padding: 10px;
+    background-color: #fff;
+    color: #787878;
+    border-top: 3px solid #eaeaea;
+    border-bottom: 3px solid #eaeaea;
+}
+
+.avatar {
+    display: block;
+    width: 65px;
+    height: 65px;
+    border-radius: 50%;
+}
+.submit {
+  width:36vw;
+  height: 30px;
+  line-height: 30px;
+  margin-top: 15px;
+}
+.ac-data {
+  font-size: 12px;
+  color: #aaaaaa;
+  width: 60%;
+  text-align: right;
+  margin-top: 15px;
+}
+.i1 {
+  font-size: 14px;
+  font-weight:bold;
+  color:#0041a2;
+  width: 30%;
+  padding-left: 10px;
+  margin: 5px 0 5px 0;
+}
+.i2 {
+  font-size: 14px;
+  width: 70%;
+  margin: 5px 0 5px 0;
+}
+.tip {
+  margin-bottom: 5px;
+  padding-left: 5px;
+  border-left: 5px solid #0041a2; 
+  color: #0041a2;
+}
